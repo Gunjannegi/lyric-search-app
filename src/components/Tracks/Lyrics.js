@@ -9,11 +9,11 @@ export default function Lyrics() {
     const [lyrics, setLyrics] = useState(''); 
     const [trackInfo, setTrackInfo] = useState()
     useEffect(() => {
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${params.id}
+        axios.get(`https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${params.id}
         &apikey=${process.env.REACT_APP_MM_KEY}`)
             .then(res => {
                 setLyrics(res.data.message.body.lyrics);
-                return axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.get?track_id=${params.id}
+                return axios.get(`https://api.musixmatch.com/ws/1.1/track.get?track_id=${params.id}
                &apikey=${process.env.REACT_APP_MM_KEY}`)
             }).then(res => {
                 setTrackInfo(res.data.message.body.track)
