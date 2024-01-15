@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import NavBar from './components/Layout/NavBar';
+import { Route } from 'react-router-dom';
+import Lyrics from './components/Tracks/Lyrics';
+import Index from './components/Layout/Index';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    return (
+        <div>
+            <NavBar />
+            <div className="container">
+                <Route path="/" exact><Index /></Route>
+                <Route path="/lyrics/track/:id" exact><Lyrics /></Route>
+            </div>
+      </div>
   );
 }
 
